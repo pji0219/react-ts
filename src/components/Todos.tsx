@@ -2,9 +2,11 @@ import React from 'react';
 
 import Todo from '../models/todos';
 import TodoText from './TodoText';
+import classes from './Todos.module.css';
 
 type Props = {
   items: Todo[];
+  onRemoveTodo: (todoId: string) => void;
 };
 
 // React.FC는 이미 제네릭 타입이기에 내부적으로 <>를 사용해 이미 구현되어 있다.
@@ -13,11 +15,16 @@ type Props = {
 // <Props> 이게 제네릭인 이유는 함수형 컴포넌트마다 props에 대한 정의가 다를 것이기 때문이다.
 
 // 제네릭을 사용하는 구문인<>를 씀으로써 FC타입 내부에 있는 제네릭 기능을 밖으로 꺼낸 것이다.
-const Todos: React.FC<Props> = (props) => {
+const Todos: React.FC<Props> = ({ items, onRemoveTodo }) => {
   return (
-    <ul>
-      {props.items.map((item) => (
-        <TodoText key={item.id} text={item.text} />
+    <ul className={classes.todos}>
+      {items.map((item) => (
+        <TodoText
+          key={item.id}
+          id={item.id}
+          text={item.text}
+          onRemoveTodo={onRemoveTodo}
+        />
       ))}
     </ul>
   );
