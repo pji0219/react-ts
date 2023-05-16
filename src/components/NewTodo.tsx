@@ -1,12 +1,11 @@
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 
 import classes from './NewTodo.module.css';
+import { TodoContext } from '../context/TodoContext';
 
-type Props = {
-  onAddTodo: (text: string) => void;
-};
+const NewTodo: React.FC = () => {
+  const { onAddTodo } = useContext(TodoContext);
 
-const NewTodo: React.FC<Props> = ({ onAddTodo }) => {
   // ref가 input 요소와 연결 될 것이기에 HTMLInputElement 타입을 지정해줘야 한다.
   // 시작 값은 null로 해주면 된다.
   const todoInputRef = useRef<HTMLInputElement>(null);
