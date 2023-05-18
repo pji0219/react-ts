@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
+import styled from 'styled-components';
 
 import TodoText from './TodoText';
-import classes from './Todos.module.css';
 import { TodoContext } from '../context/TodoContext';
 
 /* type Props = {
@@ -19,11 +19,11 @@ const Todos: React.FC = () => {
   const { items } = useContext(TodoContext);
 
   return (
-    <ul className={classes.todos}>
+    <Ul>
       {items.map((item) => (
         <TodoText key={item.id} id={item.id} text={item.text} />
       ))}
-    </ul>
+    </Ul>
   );
 };
 
@@ -96,3 +96,10 @@ export const Todos3 = ({ children }: React.PropsWithChildren) => {
     </ul>
   );
 }; */
+
+const Ul = styled.ul`
+  list-style: none;
+  margin: 2rem auto;
+  padding: 0;
+  width: 40rem;
+`;
