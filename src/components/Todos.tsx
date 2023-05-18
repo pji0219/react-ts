@@ -102,4 +102,5 @@ const Ul = styled.ul`
   margin: 2rem auto;
   padding: 0;
   width: 40rem;
+  /* background-color: ${({ theme }) => theme.styles.mainColor}; */
 `;

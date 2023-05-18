@@ -1,3 +1,7 @@
+// import { DefaultTheme } from 'styled-components';
+
 export const theme = {
-  mainColor: 'gray',
+  styles: {
+    mainColor: 'blue',
+  },
 };
