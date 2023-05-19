@@ -31,12 +31,18 @@ const NewTodo: React.FC = () => {
     <TodoForm onSubmit={submitHandler}>
       <label htmlFor='text'>할 일 입력</label>
       <input type='text' id='text' ref={todoInputRef} />
-      <Btn type='submit'>할 일 추가</Btn>
+      <Btn type='submit' primary>
+        할 일 추가
+      </Btn>
     </TodoForm>
   );
 };
 
 export default NewTodo;
+
+type Color = {
+  primary: boolean;
+};
 
 const TodoForm = styled.form`
   width: 40rem;
@@ -63,9 +69,9 @@ const TodoForm = styled.form`
     margin-bottom: 0.5rem;
   }
 `;
-export const Btn = styled.button`
+export const Btn = styled.button<Color>`
   font: inherit;
-  background-color: #ebb002;
+  background-color: ${({ primary }) => (primary ? '#ebb002' : '#6b6bcd')};
   border: 1px solid #ebb002;
   color: #201d0f;
   padding: 0.5rem 1.5rem;
@@ -74,7 +80,7 @@ export const Btn = styled.button`
 
   &:hover,
   &:active {
-    background-color: #ebc002;
-    border-color: #ebc002;
+    background-color: ${({ primary }) => (primary ? '#ebc002' : 'skyblue')};
+    border-color: ${({ primary }) => (primary ? '#ebc002' : 'skyblue')};
   }
 `;
